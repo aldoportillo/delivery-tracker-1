@@ -24,5 +24,5 @@ class User < ApplicationRecord
 
 
   has_many(:deliveries)
-  has_many(:completed, -> {arrived}, :class_name => "Delivery", :foreign_key => "user_id")
+  # has_many(:completed, -> {arrived}, :class_name => "Delivery", :foreign_key => "user_id")
 end
