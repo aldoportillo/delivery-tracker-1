@@ -21,4 +21,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  has_many(:deliveries)
+  has_many(:completed, -> {arrived}, :class_name => "Delivery", :foreign_key => "user_id")
 end

@@ -12,4 +12,8 @@
 #  user_id               :integer
 #
 class Delivery < ApplicationRecord
+
+  belongs_to(:user, class_name: "User")
+
+  scope :arrived, -> { where(arrived: true) }
 end
