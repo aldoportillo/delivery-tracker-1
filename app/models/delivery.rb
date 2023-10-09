@@ -16,4 +16,5 @@ class Delivery < ApplicationRecord
   belongs_to(:user, class_name: "User")
 
   scope :arrived, -> { where(arrived: true) }
+  scope :not_arrived, -> { where(arrived: false) }
 end
