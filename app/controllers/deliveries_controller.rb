@@ -23,10 +23,11 @@ class DeliveriesController < ApplicationController
     the_delivery.details = params.fetch("query_details")
     the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive_on")
     the_delivery.arrived = params.fetch("query_arrived", false)
+    the_delivery.user_id = current_user.id
 
     if the_delivery.valid?
       the_delivery.save
-      redirect_to("/deliveries", { :notice => "Delivery created successfully." })
+      redirect_to("/deliveries", { :notice => "Added to list." })
     else
       redirect_to("/deliveries", { :alert => the_delivery.errors.full_messages.to_sentence })
     end

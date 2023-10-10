@@ -1,3 +1,10 @@
+<% if flash.any? %>
+<% flash.each do |type, msg| %>
+<div>
+<%= msg %>
+</div>
+<% end %>
+<% end %>
 <div>
   <div>
     <h1>
@@ -98,7 +105,7 @@
 
         <div>
           <small>
-            <%= delivery.updated_at %>
+            Updated about <%= time_ago_in_words(delivery.updated_at) %>
 
             <a href="/delete_delivery/<%= delivery.id %>">Delete</a>
           </small>

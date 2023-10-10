@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # Routes for the Delivery resource:
 
+  root "deliveries#index"
+  
   # CREATE
   post("/insert_delivery", { :controller => "deliveries", :action => "create" })
           
@@ -24,5 +26,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root "deliveries#index"
+  
 end
