@@ -56,7 +56,7 @@
 <div class="waiting_on">
   <h2>Waiting on</h2>
   <ul>
-  <% current_user.deliveries.arrived.each do |delivery| %>
+  <% current_user.deliveries.not_arrived.each do |delivery| %>
       <li>
         <div><%= delivery.description %></div>
 
@@ -74,6 +74,7 @@
         <div>
           <form action="/modify_delivery/<%= delivery.id %>" method="post">
             <input type="hidden" name="arrived" value="true">
+            <!-- TODO: hidden inputs? -->
 
             <button>Mark as received</button>
           </form>
@@ -91,7 +92,7 @@
   <h2>Received</h2>
 
   <ul>
-  <% current_user.deliveries.not_arrived.each do |delivery| %>
+  <% current_user.deliveries.arrived.each do |delivery| %>
       <li>
         <div><%= delivery.description %></div>
 
